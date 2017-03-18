@@ -4,7 +4,7 @@
     angular.module('app.controllers', [])
 
     .controller('HomeController', function HomeController($scope) {
-
+        // To be populated with Module7Controller
     })
 
     .controller('IntroductionController', function IntroductionController($scope) {
@@ -45,6 +45,21 @@
         $scope.spicy2 = function() {
             $scope.spice = $scope.customDropdownSpice
         }
-    });
+    })
 
+    .controller('Module4Controller', function Module1Controller($scope) {
+        //
+    })
+
+    .controller('Module5Controller', function Module1Controller($scope) {
+        //
+    })
+
+    .controller('Module6Controller', function Module1Controller($scope) {
+        //
+    })
+
+    .controller('Module7Controller', function Module1Controller($scope) {
+        //
+    });
 })();
