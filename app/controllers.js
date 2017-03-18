@@ -8,12 +8,16 @@
     })
 
     .controller('IntroductionController', function IntroductionController($scope) {
+        $scope.title = "Introduction";
+
         $scope.presenters = ['Cerino O. Ligutom III', 'Alexandros Pappas'];
         $scope.companyName = "Miller Development Solutions Inc.";
         $scope.agenda = "Demo for AngularJS";
     })
 
     .controller('Module1Controller', function Module1Controller($scope) {
+        $scope.title = "Data Binding by using the $scope Service";
+
         $scope.qty = 3;
         $scope.cost = 3;
         $scope.pay = function() {
@@ -23,6 +27,7 @@
 
     .controller('Module2Controller', function Module2Controller() {
         var vm = this;
+        vm.title = "Data Binding by using 'Controller As' and 'vm' Variable";
 
         vm.qty = 4;
         vm.cost = 4;
@@ -32,6 +37,8 @@
     })
 
     .controller('Module3Controller', function Module1Controller($scope) {
+        $scope.title = "Controllers + Views + Interpolation";
+
         $scope.customSpice = 'wasabi';
         $scope.spice = 'very';
 
@@ -48,18 +55,18 @@
     })
 
     .controller('Module4Controller', function Module1Controller($scope) {
-        //
+        $scope.title = "";
     })
 
     .controller('Module5Controller', function Module1Controller($scope) {
-        //
+        $scope.title = "";
     })
 
     .controller('Module6Controller', function Module1Controller($scope) {
-        //
+        $scope.title = "";
     })
 
     .controller('Module7Controller', function Module1Controller($scope) {
-        //
+        $scope.title = "";
     });
 })();
