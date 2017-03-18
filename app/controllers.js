@@ -66,11 +66,17 @@
         $scope.title = "";
     })
 
-    .controller('Module6Controller', function Module6Controller($scope) {
+    .controller('Module6Controller', function Module6Controller($scope,quiz) {
         $scope.title = "";
+        $scope.Submit = function(){
+
+        }
+        console.log(quiz.quizItems);
     })
 
-    .controller('Module7Controller', function Module7Controller($scope) {
+    .controller('Module7Controller', function Module7Controller($scope,QuizService) {
         $scope.title = "";
+        var quizService = QuizService;
+        console.log(quizService);
     });
 })();
