@@ -62,19 +62,32 @@
         $scope.searchUser = '';
     })
 
-    .controller('Module5Controller', function Module5Controller($scope) {
-        $scope.title = "";
+    .controller('Module5Controller', function Module5Controller($scope, quiz) {
+        $scope.title = "Directives";
+
+        $scope.quizItem = quiz.getFirstQuestion();
+
+        console.log($scope.quizItem);
+        $scope.consoleLogBindings = function() {
+            console.log($scope.quizItem);
+        }
     })
 
-    .controller('Module6Controller', function Module6Controller($scope,quiz) {
-        $scope.title = "";
-        $scope.Submit = function(){
+    .controller('Module6Controller', function Module6Controller($scope, quiz) {
+        $scope.title = "Factory";
+
+        $scope.quizItems = quiz.getQuizItems;
+
+        $scope.Submit = function() {
 
         }
         console.log(quiz.quizItems);
+        $scope.consoleLogBindings = function() {
+            console.log($scope.quizItems);
+        }
     })
 
-    .controller('Module7Controller', function Module7Controller($scope,QuizService) {
+    .controller('Module7Controller', function Module7Controller($scope, QuizService) {
         $scope.title = "";
         var quizService = QuizService;
         console.log(quizService);

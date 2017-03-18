@@ -1,8 +1,11 @@
-<form name="myForm">
-    <div ng-repeat="choice in quizItem.choices track by $index">
-        <label>
-            <input type="radio" ng-model="quizItem.userAnswer" ng-value="$index">
-            {{ quizItem.choices[$index] }}                                                              
-        </label>
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ quizDetails.question }}</h3>
     </div>
-</form>
+    <div class="panel-body">
+        <div ng-repeat="choice in quizDetails.choices track by $index">
+            <input type="radio" ng-model="quizDetails.userAnswer" ng-value="$index"> {{ choice }}
+        </div>
+    </div>
+    <!--<button class="btn btn-success" ng-click="testFunc()">Console Log Bindings</button>-->
+</div>

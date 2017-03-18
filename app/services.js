@@ -6,48 +6,53 @@
     .factory('quiz', function Factory1() {
 
         var _quizItems = [
-            
+
             {
                 question: "AngularJS application expressions are pure JavaScript expressions.",
                 choices: ["true", "false"],
-                answer: 0
+                correctAnswer: 0,
+                userAnswer: null
             },
             {
                 question: "Which of the following is true about ng-controller directive?",
-                choices: ["ng-controller directive tells AngularJS what controller to use with this view."
-                        , "AngularJS application mainly relies on controllers to control the flow of data in the application."
-                        , "A controller is a JavaScript object containing attributes/properties and functions."
-                        , "All of the above."],
-                answer: 3
+                choices: ["ng-controller directive tells AngularJS what controller to use with this view.", "AngularJS application mainly relies on controllers to control the flow of data in the application.", "A controller is a JavaScript object containing attributes/properties and functions.", "All of the above."],
+                correctAnswer: 3,
+                userAnswer: null
             },
             {
                 question: " Each controller accepts $scope as a parameter which refers to the application/module that controller is to control.",
                 choices: ["true", "false"],
-                answer: 0
+                correctAnswer: 0,
+                userAnswer: null
             }
         ];
 
         var score = 0;
 
         var service = {
-            quizItems : _quizItems,
-            checkAnswers: _checkAnswers
+            getQuizItems: _quizItems,
+            checkAnswers: _checkAnswers,
+            getFirstQuestion: _getFirstQuestion
         };
 
         return service;
 
         ////////////////
         function _checkAnswers(answers) {
-            
+
             answers.forEach(countCorrect);
 
-        };
-        var countCorrect = function(item, index){
-            if(item == _quizItems[index].answer)
-            {
+        }
+
+        var countCorrect = function(item, index) {
+            if (item == _quizItems[index].correctAnswer) {
                 score += 1;
             }
         };
+
+        function _getFirstQuestion() {
+            return _quizItems[1];
+        }
     })
 
     .factory('users', function users() {
@@ -140,7 +145,7 @@
         ////////////////
 
         this.quizItems = [
-            
+
             {
                 question: "AngularJS application expressions are pure JavaScript expressions.",
                 choices: ["true", "false"],
@@ -149,10 +154,7 @@
             },
             {
                 question: "Which of the following is true about ng-controller directive?",
-                choices: ["ng-controller directive tells AngularJS what controller to use with this view."
-                        , "AngularJS application mainly relies on controllers to control the flow of data in the application."
-                        , "A controller is a JavaScript object containing attributes/properties and functions."
-                        , "All of the above."],
+                choices: ["ng-controller directive tells AngularJS what controller to use with this view.", "AngularJS application mainly relies on controllers to control the flow of data in the application.", "A controller is a JavaScript object containing attributes/properties and functions.", "All of the above."],
                 correctAnswer: 3,
                 userAnswer: null
             },
@@ -167,13 +169,12 @@
         this.score = 0;
 
         function checkAnswers(answers) {
-            
+
             answers.forEach(countCorrect);
 
         };
-        var countCorrect = function(item, index){
-            if(item == _quizItems[index].answer)
-            {
+        var countCorrect = function(item, index) {
+            if (item == _quizItems[index].correctAnswer) {
                 score += 1;
             }
         };

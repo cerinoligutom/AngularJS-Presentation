@@ -7,10 +7,10 @@
             return {
                 restrict: 'E',
                 scope: {
-                    quizItem: '='
+                    quizDetails: '=',
+                    testFunc: '&'
                 },
                 templateUrl: 'app/templates/quizItem.html',
-                replace: true
             };
         })
 })();

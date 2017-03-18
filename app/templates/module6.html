@@ -3,8 +3,7 @@
         <h3 class="panel-title">{{ title }}</h3>
     </div>
     <div class="panel-body">
-        <div class="col-md-6">
-
-        </div>
+        <quiz-item ng-repeat="quizItem in quizItems" quiz-details="quizItem"></quiz-item>
+        <button class="btn btn-success" ng-click="consoleLogBindings()">Console Log Bindings</button>
     </div>
 </div>
