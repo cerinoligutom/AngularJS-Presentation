@@ -1,4 +1,4 @@
-<div class="panel panel-info">
+<div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">Data Binding by using the <b><u>$scope Service</u></b></h3>
     </div>
@@ -6,20 +6,18 @@
         <div class="col-md-6">
             <b>Invoice:</b>
             <div class="form-group">
-                <label class="control-label" for="quantityInput">Quantity:</label>
+                <label class="control-label" for="quantityInput">Quantity: {{ qty }}</label>
                 <input class="form-control" id="quantityInput" type="number" min="0" ng-model="qty">
-                <p>$scope.qty = {{ qty }}</p>
             </div>
             <div class="form-group">
-                <label class="control-label" for="costInput">Cost per item:</label>
+                <label class="control-label" for="costInput">Cost per item: {{ cost }}</label>
                 <input class="form-control" id="costInput" type="number" min="0" ng-model="cost">
-                <p>$scope.cost = {{ cost }}</p>
             </div>
             <div class="form-group">
-                <label class="control-label" for="totalDisabledInput">Total:</label>
+                <label class="control-label" for="totalDisabledInput">Total: {{ qty * cost }}</label>
                 <input class="form-control" id="totalDisabledInput" disabled="" value="{{qty * cost | currency : '₱'}}">
-                <p>$scope.qty * $scope.cost = {{ qty * cost }}</p>
             </div>
+
             <button class="btn btn-success" ng-click="pay()">Pay</button>
         </div>
     </div>

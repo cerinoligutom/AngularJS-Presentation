@@ -4,7 +4,7 @@
     angular.module('app', [
         'app.routes',
         'app.controllers',
-        // 'app.services',
-        // 'app.directives'
+        'app.services',
+        'app.directives'
     ]);
 })();

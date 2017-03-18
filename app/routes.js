@@ -27,6 +27,11 @@
                 controller: 'Module2Controller',
                 controllerAs: 'vm'
             })
+            .state('home.module3', {
+                url: '/module3',
+                templateUrl: 'app/templates/module3.html',
+                controller: 'Module3Controller',
+            })
 
         $urlRouterProvider.otherwise('/home/introduction');
     });

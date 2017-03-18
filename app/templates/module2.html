@@ -1,4 +1,4 @@
-<div class="panel panel-info">
+<div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">Data Binding by using <b><u>Controller As</u></b> and <b><u>'vm' Variable</u></b></h3>
     </div>
@@ -6,17 +6,18 @@
         <div class="col-md-6">
             <b>Invoice:</b>
             <div class="form-group">
-                <label class="control-label" for="quantityInput">Quantity:</label>
+                <label class="control-label" for="quantityInput">Quantity: {{ vm.qty }}</label>
                 <input class="form-control" id="quantityInput" type="number" min="0" ng-model="vm.qty">
             </div>
             <div class="form-group">
-                <label class="control-label" for="costInput">Cost per item:</label>
+                <label class="control-label" for="costInput">Cost per item: {{ vm.cost }}</label>
                 <input class="form-control" id="costInput" type="number" min="0" ng-model="vm.cost">
             </div>
             <div class="form-group">
-                <label class="control-label" for="totalDisabledInput">Total:</label>
+                <label class="control-label" for="totalDisabledInput">Total: {{ vm.qty * vm.cost }}</label>
                 <input class="form-control" id="totalDisabledInput" disabled="" value="{{vm.qty * vm.cost | currency : '₱'}}">
             </div>
+
             <button class="btn btn-success" ng-click="vm.pay()">Pay</button>
         </div>
     </div>

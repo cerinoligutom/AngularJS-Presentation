@@ -29,7 +29,22 @@
         vm.pay = function() {
             alert('Thanks!');
         }
-    });
+    })
 
+    .controller('Module3Controller', function Module1Controller($scope) {
+        $scope.customSpice = 'wasabi';
+        $scope.spice = 'very';
+
+        $scope.spicy = function(spice) {
+            $scope.spice = spice;
+        };
+
+        $scope.spicyList = ['nchongd', 'mexican', 'indian', 'chili', 'korean', 'wasabi'];
+        $scope.customDropdownSpice = $scope.spicyList[0];
+
+        $scope.spicy2 = function() {
+            $scope.spice = $scope.customDropdownSpice
+        }
+    });
 
 })();
