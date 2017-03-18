@@ -1,0 +1,8 @@
+<form name="myForm">
+    <div ng-repeat="choice in quizItem.choices track by $index">
+        <label>
+            <input type="radio" ng-model="quizItem.userAnswer" ng-value="$index">
+            {{ quizItem.choices[$index] }}                                                              
+        </label>
+    </div>
+</form>
