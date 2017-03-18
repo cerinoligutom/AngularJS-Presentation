@@ -36,7 +36,7 @@
         }
     })
 
-    .controller('Module3Controller', function Module1Controller($scope) {
+    .controller('Module3Controller', function Module3Controller($scope) {
         $scope.title = "Controllers + Views + Interpolation";
 
         $scope.customSpice = 'wasabi';
@@ -54,19 +54,23 @@
         }
     })
 
-    .controller('Module4Controller', function Module1Controller($scope) {
+    .controller('Module4Controller', function Module4Controller($scope, users) {
+        $scope.title = "Filters";
+
+        $scope.userList = users.getUsers();
+
+        $scope.searchUser = '';
+    })
+
+    .controller('Module5Controller', function Module5Controller($scope) {
         $scope.title = "";
     })
 
-    .controller('Module5Controller', function Module1Controller($scope) {
+    .controller('Module6Controller', function Module6Controller($scope) {
         $scope.title = "";
     })
 
-    .controller('Module6Controller', function Module1Controller($scope) {
-        $scope.title = "";
-    })
-
-    .controller('Module7Controller', function Module1Controller($scope) {
+    .controller('Module7Controller', function Module7Controller($scope) {
         $scope.title = "";
     });
 })();
