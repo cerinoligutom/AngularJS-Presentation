@@ -66,8 +66,8 @@
         $scope.title = "Directives";
 
         $scope.quizItem = quiz.getFirstQuestion();
-
         console.log($scope.quizItem);
+
         $scope.consoleLogBindings = function() {
             console.log($scope.quizItem);
         }
@@ -76,20 +76,44 @@
     .controller('Module6Controller', function Module6Controller($scope, quiz) {
         $scope.title = "Factory";
 
-        $scope.quizItems = quiz.getQuizItems;
-
-        $scope.Submit = function() {
-
-        }
+        $scope.quizItems = quiz.quizItems;        
         console.log(quiz.quizItems);
+
         $scope.consoleLogBindings = function() {
             console.log($scope.quizItems);
+        }        
+
+        $scope.Submit = function(){
+            quiz.checkAnswers($scope.quizItems);
+            console.log('Score: ',quiz.score);            
         }
+
     })
 
-    .controller('Module7Controller', function Module7Controller($scope, QuizService) {
-        $scope.title = "";
-        var quizService = QuizService;
-        console.log(quizService);
+    .controller('Module7Controller', function Module7Controller($scope,quiz, QuizService, ScoreBoardService) {
+        $scope.title1 = "Factory";
+
+        $scope.quizItemsFactory = quiz.quizItems;        
+        console.log(quiz.quizItems);
+
+        $scope.FactorySubmit = function(){
+            quiz.checkAnswers($scope.quizItemsFactory);
+            console.log('Score: ',quiz.score);            
+        }
+        ///
+        $scope.quizItemsService = QuizService.quizItems;
+        $scope.title2 = "Service";
+        $scope.ServiceSubmit    = function(){
+            QuizService.checkAnswers($scope.quizItemsService);
+            console.log('Score Service: ', QuizService.getScore());
+            var person = prompt("Please enter your name", "Your Name");
+            var score = {
+                "Name": person,
+                "Score": QuizService.getScore()
+            };
+            ScoreBoardService.addScore(score);            
+        }
+        ///
+        $scope.scores = ScoreBoardService.getScores();
     });
 })();

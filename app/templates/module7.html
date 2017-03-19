@@ -1,3 +1,41 @@
-<div>
-    <p>Hello World</p>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ title1 }}</h3>
+    </div>
+    <div class="panel-body">
+        <quiz-item ng-repeat="quizItem1 in quizItemsFactory" quiz-details="quizItem1"></quiz-item>
+        <button class="btn btn-success" ng-click="FactorySubmit()">Submit</button>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ title2 }}</h3>
+    </div>
+    <div class="panel-body">
+        <quiz-item ng-repeat="quizItem2 in quizItemsService" quiz-details="quizItem2"></quiz-item>
+        <button class="btn btn-success" ng-click="ServiceSubmit()">Submit</button>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">SCORE BOARD</h3>
+    </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="score in scores">
+                    <td>{{ score.Name }}</td>
+                    <td>{{ score.Score }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -30,22 +30,21 @@
         var score = 0;
 
         var service = {
-            getQuizItems: _quizItems,
+            quizItems: _quizItems,
             checkAnswers: _checkAnswers,
-            getFirstQuestion: _getFirstQuestion
+            getFirstQuestion: _getFirstQuestion,
+            score: score
         };
 
         return service;
 
         ////////////////
         function _checkAnswers(answers) {
-
             answers.forEach(countCorrect);
-
         }
 
-        var countCorrect = function(item, index) {
-            if (item == _quizItems[index].correctAnswer) {
+        function countCorrect(item, index) {
+            if (item.useranswer == _quizItems[index].correctAnswer) {
                 score += 1;
             }
         };
@@ -139,10 +138,7 @@
         return service;
     })
 
-    .service('QuizService', function Service1() {
-        this.checkAnswers = checkAnswers;
-
-        ////////////////
+    .service('QuizService', function Service1() {       
 
         this.quizItems = [
 
@@ -165,26 +161,57 @@
                 userAnswer: null
             }
         ];
+        
+        this.getScore = getScore;
+        this.checkAnswers = checkAnswers;
 
-        this.score = 0;
+        ////////////////        
+        var score = 0;
 
         function checkAnswers(answers) {
-
             answers.forEach(countCorrect);
+        }
 
-        };
-        var countCorrect = function(item, index) {
-            if (item == _quizItems[index].correctAnswer) {
+        function countCorrect(item, index) {            
+            if (item.userAnswer == item.correctAnswer) {
                 score += 1;
             }
-        };
+        }
+
+        function getScore(){
+            return score;
+        }
     })
 
-    .service('Service2', function Service2(dependency1) {
-        this.exposedFn = exposedFn;
+    .service('ScoreBoardService', function Service2() {
+        this.addScore = addScore;        
+        this.getScores = function(){return scores;};
+        var scores = [{
+                "Name": "Papito Cologne",
+                "Score":2
+            },
+            { 
+                "Name": "Adlkajsd Bshdasd",
+                "Score":1
+            },
+            { 
+                "Name": "Cpoiujlk Dlkjh",
+                "Score":4
+            },
+            { 
+                "Name": "Ejtrtef Fgdihv",
+                "Score":999
+            },
+            { 
+                "Name": "Glasdun Helvtt",
+                "Score":12371263
+            }
+            ];
 
         ////////////////
 
-        function exposedFn() {}
+        function addScore(score) {
+            scores.push(score);
+        }
     });
 })();
